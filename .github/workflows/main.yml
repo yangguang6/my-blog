@@ -47,10 +47,10 @@ jobs:
           # scp参数
           ARGS: "-avzr --delete"
           # 源目录，编译后生成的文件目录
-          SOURCE: "./docs/.vitepress/dist"
+          SOURCE: "./docs/.vitepress/dist/"
           # 服务器ip：换成你的服务器IP
           REMOTE_HOST: "121.40.208.17"
           # 用户
           REMOTE_USER: "root"
           # 目标地址 你在服务器上部署代码的地方
-          TARGET: "/home/www/blog"
+          TARGET: "/home/www/blog/"
