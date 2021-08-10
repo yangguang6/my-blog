@@ -16,11 +16,15 @@
 
 
 ```javascript
+const addToTaskQueue = (task) => queueMicrotask(task)
+const isThenable = (value) => typeof value === 'object' && value.then && typeof value.then === 'function'
+
 class MyPromise {
     #promiseState = 'pending'
     #promiseResult
     #fulfillmentTasks = []
     #rejectionTasks = []
+    #alreadyResolved = false
 
     constructor(executor) {
         try {
@@ -30,72 +34,125 @@ class MyPromise {
         }
     }
 
-    #resolve(value) {
-        if (this.#promiseState !== 'pending') { return }
+    #resolve = (value) => {
+        if (this.#alreadyResolved) { return this }
+        this.#alreadyResolved = true
+
+        if (isThenable(value)) {
+            value.then((result) => this.#doFulfill(result), (error) => this.#doReject(error))
+        } else {
+            this.#doFulfill(value)
+        }
+
+        return this
+    }
+
+    #reject = (error) => {
+        if (this.#alreadyResolved) { return this }
+        this.#alreadyResolved = true
+        this.#doReject(error)
+        return this
+    }
+
+    #doFulfill(value) {
         this.#promiseState = 'fulfilled'
         this.#promiseResult = value
         this.#clearAndEnqueueTasks(this.#fulfillmentTasks)
     }
 
-    #reject(error) {
-        if (this.#promiseResult !== 'pending') { return }
+    #doReject(error) {
         this.#promiseState = 'rejected'
         this.#promiseResult = error
         this.#clearAndEnqueueTasks(this.#rejectionTasks)
     }
 
-    #addToTaskQueue(task) {
-        queueMicrotask(task)
-        setTimeout(task, 0)
-    }
-
     #clearAndEnqueueTasks(tasks) {
         this.#fulfillmentTasks = []
         this.#rejectionTasks = []
-        tasks.forEach(this.#addToTaskQueue)
+        tasks.forEach(addToTaskQueue)
+    }
+
+    #runReactionSafely(reaction, resolve, reject) {
+        try {
+            const returned = reaction(this.#promiseResult)
+            resolve(returned)
+        } catch (e) {
+            reject(e)
+        }
     }
 
     then (onFulfilled, onRejected) {
-        const fulfillmentTask = () => {
-            if (typeof onFulfilled === 'function') {
-                onFulfilled(this.#promiseResult)
+        return new MyPromise((resolve, reject) => {
+            const fulfillmentTask = () => {
+                if (typeof onFulfilled === 'function') {
+                    this.#runReactionSafely(onFulfilled, resolve, reject)
+                } else {
+                    resolve(this.#promiseResult)
+                }
             }
-        }
-        const rejectionTask = () => {
-            if (typeof onRejected === 'function') {
-                onRejected(this.#promiseResult)
+            const rejectionTask = () => {
+                if (typeof onRejected === 'function') {
+                    this.#runReactionSafely(onRejected, resolve, reject)
+                } else {
+                    reject(this.#promiseResult)
+                }
             }
-        }
 
-        switch (this.#promiseState) {
-            case 'fulfilled':
-                this.#addToTaskQueue(fulfillmentTask)
-                break
-            case 'rejected':
-                this.#addToTaskQueue(rejectionTask)
-                break
-            case 'pending':
-                this.#fulfillmentTasks.push(fulfillmentTask)
-                this.#rejectionTasks.push(rejectionTask)
-                break
-            default:
-                throw Error()
-        }
+            switch (this.#promiseState) {
+                case 'fulfilled':
+                    addToTaskQueue(fulfillmentTask)
+                    break
+                case 'rejected':
+                    addToTaskQueue(rejectionTask)
+                    break
+                case 'pending':
+                    this.#fulfillmentTasks.push(fulfillmentTask)
+                    this.#rejectionTasks.push(rejectionTask)
+                    break
+                default:
+                    throw Error()
+            }
+        })
     }
 
-    catch () {
-
+    catch (onRejected) {
+        return this.then(null, onRejected)
     }
 
-    finally () {
-
+    finally (onFinally) {
+        return this.then(
+            (value) => { onFinally(); return value },
+            (error) => { onFinally(); throw error },
+        )
     }
 
-    static resolve() {}
+    static resolve(value) {
+        if (isThenable(value)) { return value }
+        return new MyPromise((resolve) => resolve(value))
+    }
 
-    static reject() {}
+    static reject(error) {
+        return new MyPromise((resolve, reject) => reject(error))
+    }
 
-    static all() {}
+    static all(iterator) {
+        return new MyPromise((resolve, reject) => {
+            const promises = [...iterator]
+            const len = promises.length
+            const results = new Array(len)
+            let fulfilledNumber = 0
+            for (let i = 0; i < len; i++) {
+                promises[i].then((res) => {
+                    results[i] = res
+                    if (++fulfilledNumber === len) {
+                        return resolve(results)
+                    }
+                }).catch((e) => {
+                    return reject(e)
+                })
+            }
+        })
+    }
 
     static allSettled() {}
 
@@ -106,11 +163,33 @@ class MyPromise {
 
 const p = new MyPromise((resolve, reject) => {
     setTimeout(() => {
-        resolve('resolved1')
+        return resolve('resolved1')
     }, 1000)
 })
+console.log(p)
 p.then((res) => {
-    console.log('res', res)
+    console.log('res1', res)
+    // throw new Error('error!')
+    return MyPromise.resolve(Promise.resolve(444))
+    // return 444
+}).then((res) => {
+    console.log('res2', res)
+}).catch((e) => {
+    console.log('error', e)
+})
+
+p.then((res) => {
+    console.log('res4', res)
+})
+
+p.finally(() => {
+    console.log('finally')
+    throw Error('666')
+    // return 666
+}).then((res) => {
+    console.log('res3', res)
+}).catch((e) => {
+    console.log('error2', e)
 })
 
 ```
