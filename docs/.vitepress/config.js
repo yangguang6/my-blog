@@ -1,7 +1,7 @@
 module.exports = {
     lang: 'zh-CN',
-    title: '和光',
-    description: '和光的博客',
+    title: '最和缓的阳光',
+    description: '最和缓的阳光的博客',
     themeConfig: {
         nav: [
             { text: 'JavaScript', link: '/javascript/promise-notes', activeMatch: '^/javascript/' },
@@ -31,7 +31,7 @@ function getInterviewSideBar () {
         {
             text: '手写系列',
             children: [
-                { text: 'call, apply, bind', link: '/interview/call-apply-bind' },
+                { text: '手动实现call, apply, bind', link: '/interview/call-apply-bind' },
             ]
         },
     ]
