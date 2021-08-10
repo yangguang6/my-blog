@@ -31,7 +31,7 @@ function getInterviewSideBar () {
         {
             text: '手写系列',
             children: [
-                { text: 'call', link: '/interview/call' },
+                { text: 'call, apply, bind', link: '/interview/call-apply-bind' },
             ]
         },
     ]
