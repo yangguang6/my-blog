@@ -5,7 +5,7 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: 'JavaScript', link: '/javascript/promise-notes', activeMatch: '^/javascript/' },
-            { text: 'Interview', link: '/interview/call', activeMatch: '^/interview/' },
+            { text: 'Interview', link: '/interview/call-apply-bind', activeMatch: '^/interview/' },
         ],
         sidebar: {
             '/javascript/': getJavascriptSideBar(),
