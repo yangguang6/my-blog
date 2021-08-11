@@ -5,7 +5,7 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: 'JavaScript', link: '/javascript/promise-notes', activeMatch: '^/javascript/' },
-            { text: 'Interview', link: '/interview/call-apply-bind', activeMatch: '^/interview/' },
+            { text: 'Interview', link: '/interview/new', activeMatch: '^/interview/' },
         ],
         sidebar: {
             '/javascript/': getJavascriptSideBar(),
@@ -29,9 +29,10 @@ function getJavascriptSideBar () {
 function getInterviewSideBar () {
     return [
         {
-            text: '手写系列',
+            text: '手写实现系列',
             children: [
-                { text: '手动实现call, apply, bind', link: '/interview/call-apply-bind' },
+                { text: '实现new操作', link: '/interview/new' },
+                { text: '实现call, apply, bind', link: '/interview/call-apply-bind' },
             ]
         },
     ]
