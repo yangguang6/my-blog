@@ -18,7 +18,7 @@ module.exports = {
 
 function getTranslationSideBar () {
     return [
-        { text: '【译】通过实现Promise来增加对它的理解', link: '/translation/implementing-promise' },
+        { text: '【译】通过实现 Promise 来加深理解', link: '/translation/implementing-promise' },
     ]
 }
 

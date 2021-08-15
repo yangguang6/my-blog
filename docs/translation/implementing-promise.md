@@ -1,4 +1,4 @@
-# 【译】通过实现 Promise 来增加对它的理解
+# 【译】通过实现 Promise 来加深理解
 
 > [原文地址](https://exploringjs.com/deep-js/ch_implementing-promises.html)
 
@@ -15,7 +15,7 @@
 我们先从一个简化版本的 Promise 工作原理开始：  
 
 - 一开始，Promise 状态是 _pending_（待定）。
-- 如果 Promise 以一个值 `v` 被 _resolved_ （已决议），那么它的状态会变成 _fulfilled_ （已兑现）（later, we’ll see that resolving can also reject）。 `v` 现在是 Promise 的 _fulfillment value_ （已兑现的值）。
+- 如果 Promise 以一个值 `v` 被 _resolved_ （已决议），那么它的状态会变成 _fulfilled_ （已兑现）（稍后，我们将会看到解决中也可以拒绝）。 `v` 现在是 Promise 的 _fulfillment value_ （已兑现的值）。
 - 如果 Promise 以一个错误 `e` 被 _rejected_ （已拒绝），那么它的状态会变成 _rejected_ （已拒绝）。 `e`现在是 Promise 的 _rejection value_ （已拒绝的值）。
 
 ## 版本1：独立的 Promise
@@ -23,7 +23,7 @@
 我们的第一个实现是一个拥有最小功能的独立运行的Promise：
 
 - 我们可以创建一个 Promise。
-- 我们可以 resolve 或者 reject 一个 Promise，并且只能做一次。
+- 我们可以 resolve 或者 reject 一个 Promise，并且只能执行一次。
 - 我们可以通过 `.then()` 注册 `reactions` （callback，回调）。注册能够正常进行，且独立于 Promise 是否已敲定（settled）。
 - `.then()` 现在还不支持链式操作 —— 他不会返回任何值。
 
@@ -388,9 +388,67 @@ resolve(value) { // [new]
 _doFulfill(value) { // [new]
     assert.ok(!isThenable(value));
     this._promiseState = 'fulfilled';
-    this._preomiseResult = value;
+    this._promiseResult = value;
     this._clearAndEnqueueTasks(this._fulfillmentTasks);
 }
 ```
 
 `reject()`没有在这展现。他唯一的新功能是现在也需要判断 `._alreadyResolved` 。
+
+## 版本4：在回调中抛出异常
+
+![ToyPromise4](../images/exception.svg "ToyPromise4")
+
+最后一个功能，我们想要我们的 Promise 将用户代码中的异常处理为拒绝（如图）。在本章中，"用户代码"就是 `.then()` 的两个回调参数。
+
+```javascript
+new ToyPromise4()
+    .resolve('a')
+    .then((value) => {
+        assert.equal(value, 'a')
+        throw 'b' // 触发拒绝
+    })
+    .catch((error) => {
+        assert.equal(error, 'b')
+    })
+```
+
+`.then()` 现在通过辅助函数 `._runReactionSafely()` 安全的运行 Promise 回调 `onFulfilled` 和 `onRejected` —— 如下所示：
+
+```javascript
+const fulfillmentTask = () => {
+    if (typeof onFulfilled === 'function') {
+        this._runReactionSafely(resultPromise, onFulfilled) // [new]
+    } else {
+        // `onFulfilled` 被省略
+        // => 我们需要传递兑现的值
+        resultPromise.resolve(this._promiseResult)
+    }
+}
+```
+
+`.PrunReactionSafely()` 的实现如下：  
+
+```javascript
+_runReactionSafely(resultPromise, reaction) { // [new]
+    try {
+        const returned = reaction(this._promiseResult)
+        resultPromise.resolve(returned)
+    } catch (e) {
+        resultPromise.reject(e)
+    }
+}
+```
+
+## 版本5：暴露构造器模式
+
+我们正在跳过最后一步：如果我们想把 `ToyPromise` 变成一个实际的 Promise 实现，我们还需要实现[暴露构造器模式（ the revealing constructor pattern ）](https://blog.domenic.me/the-revealing-constructor-pattern/)：JavaScript Promise 不是通过方法来解决和拒绝，而是通过传递给执行者（executor）的函数，即构造器的回调参数。  
+
+```javascript
+const promise = new Promise(
+  (resolve, reject) => { // executor
+    // ···
+  });
+```
+
+如果 executor 抛出一个异常，则 Promise 会被拒绝。
