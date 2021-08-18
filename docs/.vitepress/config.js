@@ -44,5 +44,6 @@ function getInterviewSideBar () {
                 { text: '实现Promise相关', link: '/interview/promise-implemented' },
             ]
         },
+        { text: 'Coding', link: '/interview/coding' },
     ]
 }
