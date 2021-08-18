@@ -1,19 +1,6 @@
 # 实现 `Promise` 相关
 
-## Promise
-
-## Promise.resolve()
-
-## Promise.reject()
-
-## Promise.all()
-
-## Promise.allSettled()
-
-## Promise.race()
-
-## Promise.any()
-
+完整实现，参考于 [【译】通过实现 Promise 来加深理解](/translation/implementing-promise) 。
 
 ```javascript
 const addToTaskQueue = (task) => queueMicrotask(task)
@@ -135,61 +122,97 @@ class MyPromise {
         return new MyPromise((resolve, reject) => reject(error))
     }
 
-    static all(iterator) {
+    static all(iterable) {
         return new MyPromise((resolve, reject) => {
-            const promises = [...iterator]
+            const promises = [...iterable]
             const len = promises.length
+            !len && resolve([])
             const results = new Array(len)
             let fulfilledNumber = 0
             for (let i = 0; i < len; i++) {
-                promises[i].then((res) => {
-                    results[i] = res
-                    if (++fulfilledNumber === len) {
-                        return resolve(results)
-                    }
-                }).catch((e) => {
-                    return reject(e)
-                })
+                MyPromise.resolve(promises[i])
+                    .then(
+                        (res) => {
+                            results[i] = res
+                            if (++fulfilledNumber === len) {
+                                return resolve(results)
+                            }
+                        },
+                        (e) => reject(e)
+                    )
             }
         })
     }
 
-    static allSettled() {}
+    static allSettled(iterable) {
+        return new MyPromise((resolve, reject) => {
+            const promises = [...iterable]
+            const len = promises.length
+            !len && resolve([])
+            const results = new Array(len)
+            let settledNumber = 0
+            for (let i = 0; i < len; i++) {
+                MyPromise.resolve(promises[i])
+                    .then(
+                        (res) => {
+                            results[i] = {
+                                status: 'fulfilled',
+                                value: res,
+                            }
+                            if (++settledNumber === len) {
+                                return resolve(results)
+                            }
+                        },
+                        (e) => {
+                            results[i] = {
+                                status: 'rejected',
+                                reason: e,
+                            }
+                            if (++settledNumber === len) {
+                                return resolve(results)
+                            }
+                        }
+                    )
+            }
+        })
+    }
 
-    static race() {}
+    static race(iterable) {
+        return new MyPromise((resolve, reject) => {
+            const promises = [...iterable]
+            const len = promises.length
+            !len && resolve()
+            for (let i = 0; i < len; i++) {
+                MyPromise.resolve(promises[i]).then(
+                    (res) => resolve(res),
+                    (e) => reject(e)
+                )
+            }
+        })
+    }
 
-    static any() {}
+    static any(iterable) {
+        return new MyPromise((resolve, reject) => {
+            const promises = [...iterable]
+            const len = promises.length
+            const errorMessage = 'All promises were rejected'
+            !len && reject(new AggregateError([], errorMessage))
+            const results = new Array(len)
+            let rejectedNumber = 0
+            for (let i = 0; i < len; i++) {
+                MyPromise.resolve(promises[i])
+                    .then(
+                        (res) => resolve(res),
+                        (e) => {
+                            results[i] = e
+                            if (++rejectedNumber === len) {
+                                return reject(new AggregateError(results, errorMessage))
+                            }
+                        }
+                    )
+            }
+        })
+    }
 }
-
-const p = new MyPromise((resolve, reject) => {
-    setTimeout(() => {
-        return resolve('resolved1')
-    }, 1000)
-})
-console.log(p)
-p.then((res) => {
-    console.log('res1', res)
-    // throw new Error('error!')
-    return MyPromise.resolve(Promise.resolve(444))
-    // return 444
-}).then((res) => {
-    console.log('res2', res)
-}).catch((e) => {
-    console.log('error', e)
-})
-
-p.then((res) => {
-    console.log('res4', res)
-})
-
-p.finally(() => {
-    console.log('finally')
-    throw Error('666')
-    // return 666
-}).then((res) => {
-    console.log('res3', res)
-}).catch((e) => {
-    console.log('error2', e)
-})
 
 ```
