@@ -51,5 +51,6 @@ function getInterviewSideBar () {
             ],
         },
         { text: 'Coding', link: '/interview/coding' },
+        { text: '数据结构与算法', link: '/interview/algorithm' },
     ]
 }
