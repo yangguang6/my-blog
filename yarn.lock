@@ -821,10 +821,10 @@ magic-string@^0.25.7:
   dependencies:
     sourcemap-codec "^1.4.4"
 
-markdown-it-anchor@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-7.1.0.tgz#30fb21497bf59e83ff4d1ddc052d821962e2489e"
-  integrity sha512-loQggrwsIkkP7TOrESvmYkV2ikbQNNKhHcWyqC7/C2CmfHl1tkUizJJU8C5aGgg7J6oXVQJx17gk7i47tNn/lQ==
+markdown-it-anchor@^8.1.2:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-8.3.0.tgz#9e1a71766f778c382e5b6d3808d8c4d3a3b4ae30"
+  integrity sha512-YXMxKqZDH/MM/sFBZe+JQ/XFa7i8mIWZYkcY7jCGmpNNqcj2iS9Wyxy5devkUoL14NJOUt5IleD99D8StAwkXg==
 
 markdown-it-container@^3.0.0:
   version "3.0.0"
@@ -1236,10 +1236,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vite@^2.4.4:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.5.1.tgz#953c71a034c07b3ae0448d57664ec9c6862f23a8"
-  integrity sha512-FwmLbbz8MB1pBs9dKoRDgpiqoijif8hSK1+NNUYc12/cnf+pM2UFhhQ1rcpXgbMhm/5c2USZdVAf0FSkSxaFDA==
+vite@^2.5.0:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.5.2.tgz#3963a4ec1e6ecae49359eddfdd67f6cb1e6e07a1"
+  integrity sha512-JK5uhiVyMqHiAJbgBa8rCvpP8bEhAE9dKDv1gCmP+EUP2FSPmEeW3WXlCXauPB3MDa8behPW+ntyNXqnGaxslg==
   dependencies:
     esbuild "^0.12.17"
     postcss "^8.3.6"
@@ -1248,10 +1248,10 @@ vite@^2.4.4:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitepress@^0.16.1:
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/vitepress/-/vitepress-0.16.1.tgz#70ba4326a4bdc7152f264868c0775615c0bc16d5"
-  integrity sha512-jsgNY+b4mngVHQ1mZZ7ZGJliup/nM0jwdKTGoptwVzSQfkx5i3lF14jRRMb6ulC+9X5xbQ7N/zNcWqVWMFd/cQ==
+vitepress@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/vitepress/-/vitepress-0.17.0.tgz#14c54d5c9f0542dbe47ffe8f908d231c81796536"
+  integrity sha512-Fe2IVz79l2PhHWYP7aj8cYuVZttGsFLlekHZu78a8ewDTij8Laq6EfOCx7Eadeh4P/BYaYDv7UGXN0vTin811w==
   dependencies:
     "@docsearch/css" "^1.0.0-alpha.28"
     "@docsearch/js" "^1.0.0-alpha.28"
@@ -1269,7 +1269,7 @@ vitepress@^0.16.1:
     gray-matter "^4.0.3"
     lru-cache "^6.0.0"
     markdown-it "^12.0.6"
-    markdown-it-anchor "^7.1.0"
+    markdown-it-anchor "^8.1.2"
     markdown-it-container "^3.0.0"
     markdown-it-emoji "^2.0.0"
     markdown-it-table-of-contents "^0.5.2"
@@ -1278,7 +1278,7 @@ vitepress@^0.16.1:
     polka "^0.5.2"
     prismjs "^1.23.0"
     sirv "^1.0.12"
-    vite "^2.4.4"
+    vite "^2.5.0"
     vue "^3.2.1"
 
 vue@^3.2.1:
