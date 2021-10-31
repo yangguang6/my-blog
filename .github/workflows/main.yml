@@ -30,15 +30,15 @@ jobs:
       - name: use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
 
       # Runs a set of commands using the runners shell
       - name: install
-        run: yarn install
-        
-      - name: build 
-        run: yarn run docs:build
-        
+        run: pnpm install
+
+      - name: build
+        run: pnpm run docs:build
+
       - name: deploy
         uses: easingthemes/ssh-deploy@main
         env:
