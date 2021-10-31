@@ -1,10 +1,10 @@
 lockfileVersion: 5.3
 
 specifiers:
-  vitepress: ^0.19.1
+  vitepress: ^0.20.0
 
 devDependencies:
-  vitepress: 0.19.2
+  vitepress: 0.20.0
 
 packages:
 
@@ -532,8 +532,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/0.19.2:
-    resolution: {integrity: sha512-F8KY5gTfIa9B61by6rlGQE2K/fw2FIflld6UuB3SHTp0E5cblYGUkGfVwMiai+ets2ztDqWIiJJqpDBm/Cam1Q==}
+  /vitepress/0.20.0:
+    resolution: {integrity: sha512-+PZy1BAWha46hcaWqhB1Vet+2dwhebTnk900ZzrAgLiw4Dx0dQpnMRnDlrp5HR8fgmLNB1Ij9PJO4gh4tvb6gQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
