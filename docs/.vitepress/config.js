@@ -25,6 +25,12 @@ function getTranslationSideBar () {
 function getJavascriptSideBar () {
     return [
         {
+            text: '包管理器',
+            children: [
+                { text: '是时候使用 pnpm 了！', link: '/javascript/pnpm-intro' },
+            ]
+        },
+        {
             text: 'Promise',
             children: [
                 { text: 'Promise基础概念及使用总结', link: '/javascript/promise-notes' },
