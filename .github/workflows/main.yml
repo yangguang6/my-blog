@@ -27,9 +27,11 @@ jobs:
         uses: actions/checkout@master
 
       # Runs a single command using the runners shell
+      - name: use pnpm
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.17.1
+
       - name: use Node.js
       - uses: actions/setup-node@v2
         with:
