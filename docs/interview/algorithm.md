@@ -110,3 +110,71 @@ Array.prototype.quickSort = function () {
 - 分区操作的时间复杂度：O(n)
 - 总时间复杂度：O(n*logN)
 
+## 搜索
+
+### 顺序搜索
+
+#### 思路
+
+- 遍历数组
+- 找到跟目标值相等的元素，就返回它的下标
+- 遍历结束后，如果没有搜索到目标值，就返回-1
+
+#### 实现
+
+```javascript
+Array.prototype.sequentialSearch = function (item) {
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === item) {
+            return i
+        }
+    }
+    return -1
+}
+```
+
+#### 时间复杂度
+
+- 遍历数组是一个循环操作
+- 时间复杂度：O(n)
+
+### 二分搜索
+
+#### 思路
+
+前提：数组有序
+
+- 从数组的中间元素开始，如果中间元素正好是目标值，则搜索结束
+- 如果目标值大于或者小于中间元素，则在大于或小于中间元素的那一半数组中搜索
+
+#### 实现
+
+```javascript
+Array.prototype.binarySearch = function (item) {
+    let low = 0
+    let high = this.length - 1
+    while (low <= high) {
+        const mid = Math.floor((low + high) / 2)
+        const element = this[mid]
+        if (element < item) {
+            low = mid + 1
+        } else if (element > item) {
+            high = mid - 1
+        } else {
+            return mid
+        }
+    }
+    return -1
+}
+```
+
+#### 时间复杂度
+
+- 每一次比较都使搜索范围缩小一半
+- 时间复杂度：O(logN)
+
+### 例题
+
+- [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+- [374. 猜数字大小](https://leetcode-cn.com/problems/guess-number-higher-or-lower/)
+
