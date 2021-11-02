@@ -178,3 +178,27 @@ Array.prototype.binarySearch = function (item) {
 - [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
 - [374. 猜数字大小](https://leetcode-cn.com/problems/guess-number-higher-or-lower/)
 
+## 分而治之
+
+- 分而治之是 *算法设计* 中的一种方法
+- 它将一个问题 **分** 成多个和原问题相似的小问题，**递归解决** 小问题，再将结果 **合** 并以解决原来的问题
+
+### 场景一：[归并排序](#归并排序)
+
+- 分：把数组从中一分为二
+- 解：递归地对两个数组进行归并排序
+- 合：合并有序字数组
+
+
+### 场景二：[快速排序](#快速排序)
+
+- 分：选基准，按基准把数组分成两个子数组
+- 解：递归的对两个子数组进行快速排序
+- 合：对两个子数组进行合并
+
+### 例题
+
+- [374. 猜数字大小](https://leetcode-cn.com/problems/guess-number-higher-or-lower/)
+- [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
+- [100. 相同的树](https://leetcode-cn.com/problems/same-tree/)
+- [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
