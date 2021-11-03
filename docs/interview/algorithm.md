@@ -4,7 +4,7 @@
 
 [动画演示](https://visualgo.net/en/sorting)
 
-![](../images/sort-algorithm.png)
+![排序算法时间复杂度](../images/sort-algorithm.png)
 
 ### 插入排序
 
@@ -202,3 +202,20 @@ Array.prototype.binarySearch = function (item) {
 - [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
 - [100. 相同的树](https://leetcode-cn.com/problems/same-tree/)
 - [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
+
+## 动态规划
+
+- 动态规划是 *算法设计* 中的一种方法
+- 他将一个问题分解为 **相互重叠** 的子问题，通过反复求解子问题，来解决原来的问题
+
+### 斐波那契数列
+
+![斐波那契数列](../images/fibonacci.png)
+
+- 定义子问题：F(n) = F(n-1) + F(n-2)
+- 反复执行：从 2 循环到 n，执行上述公式
+
+### 例题
+
+- [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+- [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
