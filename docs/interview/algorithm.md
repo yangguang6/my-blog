@@ -1,5 +1,17 @@
 # 数据结构与算法
 
+## 学习资料
+
+- [代码随想录](https://programmercarl.com/)
+
+## 数组
+
+- 数组是存放在连续内存空间上的相同类型数据的集合
+
+### 例题
+
+- [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
+
 ## 排序
 
 [动画演示](https://visualgo.net/en/sorting)
@@ -149,6 +161,8 @@ Array.prototype.sequentialSearch = function (item) {
 
 #### 实现
 
+javascript:
+
 ```javascript
 Array.prototype.binarySearch = function (item) {
     let low = 0
@@ -162,6 +176,27 @@ Array.prototype.binarySearch = function (item) {
             high = mid - 1
         } else {
             return mid
+        }
+    }
+    return -1
+}
+```
+
+typescript:
+
+```typescript
+function search(nums: number[], target: number): number {
+    let left = 0
+    let right = nums.length - 1
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2)
+        const data = nums[mid]
+        if (data === target) {
+            return mid
+        } else if (data > target) {
+            right = mid - 1
+        } else {
+            left = mid + 1
         }
     }
     return -1
