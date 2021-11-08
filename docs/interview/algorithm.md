@@ -219,3 +219,31 @@ Array.prototype.binarySearch = function (item) {
 
 - [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
 - [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
+
+## 贪心算法
+
+- 贪心算法是 *算法设计* 中的一种方法
+- 期盼通过每个阶段的 **局部最优** 选择，从而达到全局的最优
+- 结果并 **不一定是最优**
+
+### 例题
+
+- [455. 分发饼干](https://leetcode-cn.com/problems/assign-cookies/)
+- [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+
+## 回溯算法
+
+- 回溯算法是 *算法设计* 中的一种方法
+- 回溯算法是一种 **渐进式** 寻找并构建问题解决方式的策略
+- 回溯算法会先从一个可能的动作开始解决问题，如果不行，就回溯并选择另一个动作，直到问题解决
+
+### 适合场景
+
+- 有很多"路"
+- 这些路里，有 **死路**，也有 **出路**
+- 通常需要递归来模拟所有的路
+
+### 例题
+
+- [46. 全排列](https://leetcode-cn.com/problems/permutations/)
+- [78. 子集](https://leetcode-cn.com/problems/subsets/)
