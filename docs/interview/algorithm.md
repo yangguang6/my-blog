@@ -2,6 +2,7 @@
 
 > 图例
 > - 😀 —— 完成的比较好
+> - 🤔 —— 完成，有更简洁的方法
 > - 😵‍💫 —— 完成，但是比较低效，有更好的方法
 > - 🤯 —— 未完成
 
@@ -15,9 +16,28 @@
 
 ### 例题
 
+#### 二分查找
+
 - 😀 [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
 - 😵‍💫 [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
 - 😵‍💫 [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+- 🤔 [69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
+- 🤔 [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/)
+
+##### 常见场景
+
+- 数组有序
+- 平方根
+
+#### 移除元素
+
+- 🤔 [27. 移除元素](https://leetcode-cn.com/problems/remove-element/)
+- 😀 [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+- 😀 [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+
+##### 常用方法
+
+- 双指针
 
 ## 排序
 
