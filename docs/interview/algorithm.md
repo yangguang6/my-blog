@@ -1,6 +1,6 @@
 # 数据结构与算法
 
-> 图例
+> emojis
 > - 😀 —— 完成的比较好
 > - 🤔 —— 完成，有更简洁的方法
 > - 😵‍💫 —— 完成，但是比较低效，有更好的方法
@@ -29,15 +29,18 @@
 - 数组有序
 - 平方根
 
-#### 移除元素
+#### 移除（动）元素
 
 - 🤔 [27. 移除元素](https://leetcode-cn.com/problems/remove-element/)
 - 😀 [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 - 😀 [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+- 😵‍💫 [844. 比较含退格的字符串](https://leetcode-cn.com/problems/backspace-string-compare/)
+- 😀 [977. 有序数组的平方](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)
 
-##### 常用方法
+#### 滑动窗口/前缀和
 
-- 双指针
+- 🤯 [209. 长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
+- 🤯 [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
 ## 排序
 
