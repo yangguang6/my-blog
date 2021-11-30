@@ -3,7 +3,7 @@
 > emojis
 > - 😀 —— 完成的比较好
 > - 🤔 —— 完成，有更简洁的方法
-> - 😵‍💫 —— 完成，但是比较低效，有更好的方法
+> - 😵‍💫 —— 完成，但是比较低效（或超时），有更好的方法
 > - 🤯 —— 未完成
 
 ## 学习资料
@@ -29,7 +29,7 @@
 - 数组有序
 - 平方根
 
-#### 移除（动）元素
+#### 移除（动）元素（双指针）
 
 - 🤔 [27. 移除元素](https://leetcode-cn.com/problems/remove-element/)
 - 😀 [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
@@ -41,6 +41,13 @@
 
 - 🤯 [209. 长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
 - 🤯 [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+- 😀 [904. 水果成篮](https://leetcode-cn.com/problems/fruit-into-baskets/)
+- 🤯 [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
+
+#### 旋转矩阵（模拟）
+
+- 🤯 [59. 螺旋矩阵 II](https://leetcode-cn.com/problems/spiral-matrix-ii/)
+- 🤯 [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/)
 
 ## 排序
 
