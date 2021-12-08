@@ -61,6 +61,10 @@
 
 - 😀 [707. 设计链表](https://leetcode-cn.com/problems/design-linked-list/)
 
+#### 翻转链表
+
+- 😵‍💫 [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+
 ## 排序
 
 [动画演示](https://visualgo.net/en/sorting)
