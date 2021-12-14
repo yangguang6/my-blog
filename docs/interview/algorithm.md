@@ -58,6 +58,8 @@
 - 😵‍💫 [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
 - 🤯 [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 - 😀 [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+- 🤔 [面试题 02.07. 链表相交](https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci/)
+- 😵‍💫 [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 
 ## 排序
 
