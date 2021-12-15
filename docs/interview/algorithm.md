@@ -61,6 +61,17 @@
 - 🤔 [面试题 02.07. 链表相交](https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci/)
 - 😵‍💫 [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 
+## 哈希表
+
+### 例题
+
+用到了排序。
+
+- 😀 [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
+- 😀 [383. 赎金信](https://leetcode-cn.com/problems/ransom-note/)
+- 😀 [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
+- 😵‍💫 [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
+
 ## 排序
 
 [动画演示](https://visualgo.net/en/sorting)
