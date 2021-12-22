@@ -71,6 +71,8 @@
 - 😀 [383. 赎金信](https://leetcode-cn.com/problems/ransom-note/)
 - 😀 [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
 - 😵‍💫 [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
+- 😀 [349. 两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/)
+- 😵‍💫 [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)
 
 ## 排序
 
