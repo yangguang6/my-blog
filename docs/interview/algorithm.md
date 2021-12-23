@@ -73,6 +73,7 @@
 - 😵‍💫 [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
 - 😀 [349. 两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/)
 - 😵‍💫 [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)
+- 🤔 [202. 快乐数](https://leetcode-cn.com/problems/happy-number/)
 
 ## 排序
 
