@@ -74,6 +74,7 @@
 - 😀 [349. 两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/)
 - 😵‍💫 [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)
 - 🤔 [202. 快乐数](https://leetcode-cn.com/problems/happy-number/)
+- 😀 [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 
 ## 排序
 
