@@ -84,6 +84,11 @@
 
 - 😀 [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/)
 - 🤔 [541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/)
+- 😀 [剑指 Offer 05. 替换空格](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
+- 🤔 [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
+- 🤔 [剑指 Offer 58 - II. 左旋转字符串](https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/)
+- 😵‍💫 [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+  - KMP 算法
 
 ## 双指针法
 
