@@ -87,15 +87,23 @@
 - 😀 [剑指 Offer 05. 替换空格](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
 - 🤔 [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
 - 🤔 [剑指 Offer 58 - II. 左旋转字符串](https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/)
-- 😵‍💫 [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
-  - KMP 算法
+- KMP 算法
+  - 😵‍💫 [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+  - 🤯 [459. 重复的子字符串](https://leetcode-cn.com/problems/repeated-substring-pattern/)
 
 ## 双指针法
 
-## 例题
+### 例题
 
 - 🤯 [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
 - 😀 [18. 四数之和](https://leetcode-cn.com/problems/4sum/)
+
+## 栈与队列
+
+### 例题
+
+- 😀 [232. 用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+- 😀 [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/)
 
 ## 排序
 
